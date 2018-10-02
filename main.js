@@ -97,3 +97,9 @@ function copyText(text){
 }
 
 document.getElementById("make").onclick = function() {makeNippo()};
+document.getElementById("make").onkeypress = function(event) {
+  console.log(event.keycode);
+  if(event.keycode == 13){ 
+  makeNippo()
+}
+};
