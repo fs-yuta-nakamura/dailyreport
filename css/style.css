@@ -1,0 +1,60 @@
+.content {
+  background-color: #fff;
+  max-width: 800px;
+  margin: 10px auto;
+  border: 1px solid #d1d1d1;
+  padding: 30px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.24);
+}
+
+.control{
+  margin-bottom: 1.5em;
+}
+
+.btn-primary {
+  margin: 20px 5px;
+}
+h1 {
+  margin: 5px 0px 25px 5px;
+}
+
+body {
+background-color: #ffcccc6b;
+}
+
+label {
+  display: block;
+}
+
+input {
+  border:none;
+  border-bottom: 1px solid #d1d1d1;
+  width: 30% ;
+  padding: 3px;
+}
+
+select {
+  border:none;
+  border-bottom: 1px solid #d1d1d1;
+  font-size: 1.2em;
+  padding: 1px;
+}
+
+#result {
+  display: none;
+}
+
+textarea {
+  border: 1px solid #d1d1d1;
+  width: 100% ;
+  padding: 8px;
+}
+
+#calendar {
+  width: 50%;
+}
+
+.alert-info {
+  display: none;
+  transition: all 100ms 3000ms ease;
+}
