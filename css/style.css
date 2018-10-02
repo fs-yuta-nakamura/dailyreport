@@ -55,8 +55,3 @@ textarea {
 #calendar {
   width: 50%;
 }
-
-.alert-info {
-  display: none;
-  transition: all 100ms 3000ms ease;
-}
