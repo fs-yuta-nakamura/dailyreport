@@ -25,10 +25,13 @@ background-color: #ffcccc6b;
 }
 
 label {
+  float: left;
   display: block;
 }
 
 input {
+  clear: left;
+  display: block;
   border:none;
   border-bottom: 1px solid #d1d1d1;
   width: 30% ;
@@ -46,7 +49,15 @@ select {
   display: none;
 }
 
+.mojisu {
+  float: left;
+  text-align: right;
+  margin-left: 30px;
+}
+
 textarea {
+  clear: left;
+  display: block;
   border: 1px solid #d1d1d1;
   width: 100% ;
   padding: 8px;

@@ -1,12 +1,39 @@
+// vue 
+Vue.component('text-review', {
+  props: ['title'],
+  data: function() {
+    return {
+      message: ""
+    }
+  },
+  computed: {
+    length: function(){
+      return this.message.replace(/[\s\n]+/g, "").length
+    }
+  },
+  template: `
+  <div class="text-review">
+  <label v-bind:for="title"><slot></slot></label>
+  <span class="mojisu">{{length}}文字</span>
+  <textarea v-bind:id="title" v-model="message" rows="10"></textarea>
+  </div>
+  `
+}
+)
+
+new Vue({el: "#commit-vue"})
+new Vue({el: "#idenshi-vue"})
+
+
 var makeNippo = function(){
   var date = new Date($('#date').val());
   var month = date.getMonth() + 1;
   var day = date.getDate();
   var week = '日月火水木金土'[date.getDay()];
   var commitNum = $('#commitment').val();
-  var commitReview = $("#commit-review").val();
+  var commitReview = $("#commit-review").val().trim();
   var todayIdenshi = $("#idenshi").val();
-  var idenshiReview = $("#idenshi-review").val();
+  var idenshiReview = $("#idenshi-review").val().trim();
   var tomorrowIdenshi = $("#tmr-idenshi").val()
   var calendar = $("#calendar").val()
 
