@@ -45,6 +45,14 @@ select {
   padding: 1px;
 }
 
+textarea {
+  clear: left;
+  display: block;
+  border: 1px solid #d1d1d1;
+  width: 100% ;
+  padding: 8px;
+}
+
 #result {
   display: none;
 }
@@ -55,14 +63,7 @@ select {
   margin-left: 30px;
 }
 
-textarea {
-  clear: left;
-  display: block;
-  border: 1px solid #d1d1d1;
-  width: 100% ;
-  padding: 8px;
-}
 
 #calendar {
-  width: 50%;
+  max-width: 400px  ;
 }

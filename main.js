@@ -23,6 +23,29 @@ Vue.component('text-review', {
 
 new Vue({el: "#content-area"})
 
+var setDefaultDate = function(){
+  // set today's date as default date'
+  var date = new Date();
+  var year = date.getFullYear();
+  var month = date.getMonth() + 1;
+  var day = date.getDate();
+
+  var toTwoDigits = function(num, digit){
+    num  += '';
+    if (num.length < digit){
+      num = '0' + num ;
+    }
+    return num;
+  }
+  var yyyy = toTwoDigits(year, 4);
+  var mm = toTwoDigits(month, 2);
+  var dd = toTwoDigits(day, 2);
+  var ymd = yyyy + "-" + mm + "-" + dd;
+  document.getElementById("date").value = ymd;
+      }
+
+setDefaultDate();
+  
 var makeNippo = function(){
   var date = new Date($('#date').val());
   var month = date.getMonth() + 1;
@@ -99,7 +122,7 @@ var makeNippo = function(){
 }
 
 
-var lengthNippo = function(nippo) {
+  var lengthNippo = function(nippo) {
   var startIndex = nippo.indexOf("```") + 3;
   var lastIndex = nippo.lastIndexOf("```") - 1;
   var mainContent = nippo.substring(startIndex, lastIndex);
