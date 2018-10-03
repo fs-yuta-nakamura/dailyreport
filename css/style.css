@@ -24,6 +24,9 @@ body {
 background-color: #ffcccc6b;
 }
 
+p {
+  white-space: pre-wrap;
+}
 label {
   float: left;
   display: block;
@@ -53,9 +56,6 @@ textarea {
   padding: 8px;
 }
 
-#result {
-  display: none;
-}
 
 .mojisu {
   float: left;
@@ -66,4 +66,12 @@ textarea {
 
 #calendar {
   max-width: 400px  ;
+}
+
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  transition: all .3s ease;
 }
