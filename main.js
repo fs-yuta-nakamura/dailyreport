@@ -21,9 +21,7 @@ Vue.component('text-review', {
 }
 )
 
-new Vue({el: "#commit-vue"})
-new Vue({el: "#idenshi-vue"})
-
+new Vue({el: "#content-area"})
 
 var makeNippo = function(){
   var date = new Date($('#date').val());

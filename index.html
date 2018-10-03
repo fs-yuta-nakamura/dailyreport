@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8">
   </head>
   <body>
-    <div class="content">
+    <div class="content" id="content-area">
       <h1>日報ジェネレータ</h1>
 
       <div class="control">
@@ -72,8 +72,9 @@ document.getElementById("date").value = ymd;
       </div>
 
       <div class="control">
-        <label for="calendar">本日の流れ</label>
-        <textarea id="calendar" name="calendar" rows="8"></textarea>
+        <div id="calendar-vue">
+          <text-review title="calendar">本日の流れ</text-review>
+        </div>
       </div>
       <button type="button" id="make" class="btn btn-primary">日報作成！</button>
     </div>
