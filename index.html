@@ -30,6 +30,8 @@
           </select>
         </div>
 
+        <button v-on:click="saveData">Save!</button>
+        <button v-on:click="loadData">Load!</button>
         <div class="control">
           <label for="commitReview">コミットメントの振り返り</label>
           <span class="mojisu">{{commitLength}}文字</span>
@@ -66,7 +68,7 @@
         <div class="alert alert-info" id="result-info" role="alert" v-show="result">クリップボードにコピーしました</div>
         </transition>
         <p id="result-text">
-{{makeNippo()}} 
+{{nippo}} 
         </p>
       </div>
 
