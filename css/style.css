@@ -55,9 +55,8 @@ input {
 select {
   border:none;
   display: block;
-  width: 30px;
+  width: 70%;
   border-bottom: 1px solid #d1d1d1;
-  font-size: 1.2em;
   padding: 1px;
 }
 
