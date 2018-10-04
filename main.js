@@ -31,17 +31,20 @@ var setDefaultDate = function(){
 var app = new Vue({
   el: "#app-main",
   data: {
-    date: setDefaultDate(),
-    commitNum: "",
-    commitReview: "",
-    todayIdenshi: "",
-    idenshiReview: "",
-    tomorrowIdenshi: "",
-    calendar: "",
+    nippo:
+    {
+      date: setDefaultDate(),
+      commitNum: "",
+      commitReview: "",
+      todayIdenshi: "",
+      idenshiReview: "",
+      tomorrowIdenshi: "",
+      calendar: "",
+    },
     result: false
   },
   computed: {
-    nippo: function (){
+    formatedNippo: function (){
      nippo_text = `お疲れ様です。
 中村です。
 ${this.month}月${this.day}日(${this.week})の日報です。
@@ -66,23 +69,23 @@ ${this.month}月${this.day}日(${this.week})の日報です。
 4. 時間あたりの生産性を意識する
 5. 時間のポートフォリオを意識する
 
-・振り返り (${this.commitNum})
-${this.commitReview}
+・振り返り (${this.nippo.commitNum})
+${this.nippo.commitReview}
 
 
 ■本日意識した遺伝志
-「${this.todayIdenshi}」
+「${this.nippo.todayIdenshi}」
 
 ・振り返り
-${this.idenshiReview}
+${this.nippo.idenshiReview}
 
 
 ■明日意識する遺伝志
-「${this.tomorrowIdenshi}」
+「${this.nippo.tomorrowIdenshi}」
 
 
 ■本日の流れ
-${this.calendar}
+${this.nippo.calendar}
 
 
 ■文字数
@@ -96,16 +99,16 @@ https://docs.google.com/spreadsheets/d/1kgZgrhEhfshn5jZQ2rXrJ1C59IvfoRnznHBZ0WJ1
      return  nippo_text.replace("XXX", this.lengthNippo(nippo_text));
     },
     commitLength: function() {
-      return this.commitReview.replace(/[\s\n]+/g, "").length
+      return this.nippo.commitReview.replace(/[\s\n]+/g, "").length
     },
     idenshiLength: function() {
-      return this.idenshiReview.replace(/[\s\n]+/g, "").length
+      return this.nippo.idenshiReview.replace(/[\s\n]+/g, "").length
     },
     calendarLength: function() {
-      return this.calendar.replace(/[\s\n]+/g, "").length
+      return this.nippo.calendar.replace(/[\s\n]+/g, "").length
     },
     jsDate: function(){
-      return new Date(this.date);
+      return new Date(this.nippo.date);
     },
     month: function(){ 
       return this.jsDate.getMonth() + 1 },
@@ -123,18 +126,19 @@ https://docs.google.com/spreadsheets/d/1kgZgrhEhfshn5jZQ2rXrJ1C59IvfoRnznHBZ0WJ1
       return mainContent.length;
     },
     makeNippo: function(){
-      copyText(this.nippo);
+      copyText(this.formatedNippo);
       this.result = true;
       this.$nextTick(function(){
         document.getElementById("result").scrollIntoView({behavior: "smooth", block: "start"});
       })
     },
     saveData: function(){
-      localStorage.setItem("datalist", JSON.stringify(this.$data)) 
+      localStorage.setItem("datalist", JSON.stringify(this.nippo)) 
     },
     loadData: function(){
-      savedData = JSON.parse( localStorage.getItem("datalist") ) || [];
-      app.commitReview = savedData.commitReview;
+      savedData = JSON.parse( localStorage.getItem("datalist")  || '[]');
+      console.log(savedData);
+      app.nippo = savedData;
     }
   } 
 })

@@ -16,12 +16,12 @@
 
         <div class="control">
           <label for="date">日付</label>
-          <input id="date"  type="date"v-model="date"> 
+          <input id="date"  type="date"v-model="nippo.date"> 
         </div>
 
         <div class="control">
           <label for="commitment">コミットメント</label>
-          <select id="commitment" v-model="commitNum" name="commit">
+          <select id="commitment" v-model="nippo.commitNum" name="commit">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -35,29 +35,29 @@
         <div class="control">
           <label for="commitReview">コミットメントの振り返り</label>
           <span class="mojisu">{{commitLength}}文字</span>
-          <textarea id="commitReview" v-model="commitReview" rows="10"></textarea>
+          <textarea id="commitReview" v-model="nippo.commitReview" rows="10"></textarea>
         </div>
 
         <div class="control">
           <label for="todayIdenshi">本日の遺伝志</label>
-          <input id="todayIdenshi" v-model="todayIdenshi" type="text"> 
+          <input id="todayIdenshi" v-model="nippo.todayIdenshi" type="text"> 
         </div>
 
         <div class="control">
           <label for="idenshiReview">遺伝志の振り返り</label>
           <span class="mojisu">{{idenshiLength}}文字</span>
-          <textarea id="idenshiReview" v-model="idenshiReview" rows="10"></textarea>
+          <textarea id="idenshiReview" v-model="nippo.idenshiReview" rows="10"></textarea>
         </div>
 
         <div class="control">
           <label for="tomorrowIdenshi">明日の遺伝志</label>
-          <input id="tomorrowIdenshi" v-model="tomorrowIdenshi" type="text"> 
+          <input id="tomorrowIdenshi" v-model="nippo.tomorrowIdenshi" type="text"> 
         </div>
 
         <div class="control">
           <label for="calendar">本日のながれ</label>
           <span class="mojisu">{{calendarLength}}文字</span>
-          <textarea id="calendar" v-model="calendar" rows="10"></textarea>
+          <textarea id="calendar" v-model="nippo.calendar" rows="10"></textarea>
         </div>
 
         <button type="button" id="make" class="btn btn-primary" v-on:click="makeNippo">日報作成！</button>
@@ -68,7 +68,7 @@
         <div class="alert alert-info" id="result-info" role="alert" v-show="result">クリップボードにコピーしました</div>
         </transition>
         <p id="result-text">
-{{nippo}} 
+{{formatedNippo}} 
         </p>
       </div>
 
