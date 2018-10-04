@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 .content {
   background-color: #fff;
   max-width: 800px;
@@ -16,25 +18,34 @@
   box-shadow: 0 0 4px 0 rgba(0,0,0,0.24);
 
 }
+html {
+  font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", 'noto sans JP',Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
 h1 {
   margin: 5px 0px 25px 5px;
-}
-
-body {
-background-color: #ffcccc6b;
 }
 
 p {
   white-space: pre-wrap;
 }
+
+nav {
+  padding: 0px 20px;
+}
+
+nav .brand-logo {
+  left :30px;
+  font-size: 20px;
+}
+
+
 label {
   float: left;
+  font-size: 1.0em;
   display: block;
 }
 
 input {
-  clear: left;
-  display: block;
   border:none;
   border-bottom: 1px solid #d1d1d1;
   width: 30% ;
@@ -43,17 +54,26 @@ input {
 
 select {
   border:none;
+  display: block;
+  width: 30px;
   border-bottom: 1px solid #d1d1d1;
   font-size: 1.2em;
   padding: 1px;
 }
 
 textarea {
+  font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", 'noto sans JP',Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   clear: left;
   display: block;
   border: 1px solid #d1d1d1;
   width: 100% ;
   padding: 8px;
+}
+
+
+
+.container {
+  padding-top: 20px;
 }
 
 
@@ -74,4 +94,12 @@ textarea {
 
 .fade-enter-active {
   transition: all .3s ease;
+}
+
+.input-area{
+  clear: left;
+  display: block;
+}
+#app-main input.input-area {
+   width: 30%;
 }
