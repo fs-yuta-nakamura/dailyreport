@@ -13,16 +13,19 @@
   <body>
     <div id="app-main" >
       <div class="navbar-fixed">
-      <nav>
-        <div class="brand-logo">日報ジェネレーター</div>
-        <ul class="right hide-on-med-and-down">
-          <li><a href="#" v-on:click="saveData">save</a></li>
-          <li><a href="#" v-on:click="loadData">load</a></li>
-        </ul>
-      </nav>
-    </div>
-      <div class="container">
+        <nav>
+          <div class="brand-logo">日報ジェネレーター</div>
+          <ul class="right hide-on-med-and-down">
+            <li><a id="download" href="#" v-on:click="download" :download="file_name">Download</a></li>
+            <li><a href="#" v-on:click="saveData">save</a></li>
+            <li><a href="#" v-on:click="loadData">load</a></li>
+          </ul>
+        </nav>  
+      </div>
+      <div class="container">     
+
         <div class="control">
+          <a id="download" href="#" download="test.txt" onclick="downloadURL()">ダウンロード  </a>
           <label for="date">日付</label>
           <input class="input-area" id="date"  type="date"v-model="nippo.date"> 
         </div>
@@ -54,7 +57,7 @@
           <span class="mojisu">{{idenshiLength}}文字</span>
           <textarea id="idenshiReview" v-model="nippo.idenshiReview" rows="10"></textarea>
         </div>
- 
+
         <div class="control">
           <label for="tomorrowIdenshi">明日の遺伝志</label>
           <input class="input-area" id="tomorrowIdenshi" v-model="nippo.tomorrowIdenshi" type="text"> 
@@ -67,21 +70,21 @@
         </div>
 
         <button type="button" id="make" class="btn btn-primary" v-on:click="makeNippo">日報作成！</button>
-      
-      <div class="row">
-        <div class="col m8 offset-m2">  
-            <transition name="fade">
-                <div class="alert alert-info" id="result-info" role="alert" v-show="result">クリップボードにコピーしました</div>
-            </transition>
-          <div class="card" id="result" v-show="result">
-            <div class="card-content">
 
-              <p id="result-text">{{formatedNippo}}</p>
-            </div>
-          </div> 
+        <div class="row">
+          <div class="col m8 offset-m2">  
+            <transition name="fade">
+            <div class="alert alert-info" id="result-info" role="alert" v-show="result">クリップボードにコピーしました</div>
+            </transition>
+            <div class="card" id="result" v-show="result">
+              <div class="card-content">
+
+                <p id="result-text">{{formatedNippo}}</p>
+              </div>
+            </div> 
+          </div>
         </div>
       </div>
-    </div>
 
     </div>
     </div>

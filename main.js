@@ -26,7 +26,15 @@ var setDefaultDate = function(){
   var dd = toTwoDigits(day, 2);
   var ymd = yyyy + "-" + mm + "-" + dd;
   return ymd
-      }
+}
+
+var downloadURL = function(){
+  var content = "あいうえお";
+  var blob = new Blob([ content ], { "type" : "text/plain" });
+  var downloadLink = window.URL.createObjectURL(blob);
+  document.getElementById("download").href = downloadLink;
+
+}
 
 var app = new Vue({
   el: "#app-main",
@@ -60,14 +68,14 @@ ${this.month}月${this.day}日(${this.week})の日報です。
 
 
 ■月次目標
-「時間の使い方を改善する」
+「Andを取り続ける」
 
 ・コミットメント
-1. すべてのタスクの期日を明確に切る
-2. タスクの期日は必ず守る
-3. 時間の使い方を計画する
-4. 時間あたりの生産性を意識する
-5. 時間のポートフォリオを意識する
+1. 時間を理由に挑戦をやめない
+2. できる、できないではなくやる方法を考える
+3. 学びを転化する
+4. 自分から機会を取りに行く
+5. 時間の管理を細かくする
 
 ・振り返り (${this.nippo.commitNum})
 ${this.nippo.commitReview}
@@ -96,7 +104,7 @@ XXX字
 https://docs.google.com/spreadsheets/d/1kgZgrhEhfshn5jZQ2rXrJ1C59IvfoRnznHBZ0WJ1qdY/edit#gid=1451509297
   \`\`\` `
 
-     return  nippo_text.replace("XXX", this.lengthNippo(nippo_text));
+      return  nippo_text.replace("XXX", this.lengthNippo(nippo_text));
     },
     commitLength: function() {
       return this.nippo.commitReview.replace(/[\s\n]+/g, "").length
@@ -115,7 +123,10 @@ https://docs.google.com/spreadsheets/d/1kgZgrhEhfshn5jZQ2rXrJ1C59IvfoRnznHBZ0WJ1
     day: function(){
       return this.jsDate.getDate() },
     week: function(){
-      return '日月火水木金土'[this.day] }
+      return '日月火水木金土'[this.day] },
+    file_name: function(){
+      return "" + this.nippo.date.slice(5, 7) + this.nippo.date.slice(8, 10) + "_日報";
+    }
   },
   methods: {
     lengthNippo: function(nippo) {
@@ -139,6 +150,13 @@ https://docs.google.com/spreadsheets/d/1kgZgrhEhfshn5jZQ2rXrJ1C59IvfoRnznHBZ0WJ1
       savedData = JSON.parse( localStorage.getItem("datalist")  || '[]');
       console.log(savedData);
       app.nippo = savedData;
+    },
+    download: function(){
+      var blob = new Blob([ this.formatedNippo ], { "type" : "text/plain" });
+      var downloadLink = window.URL.createObjectURL(blob);
+      this.$nextTick(function(){
+        document.getElementById("download").href = downloadLink;    
+      });
     }
   } 
 })

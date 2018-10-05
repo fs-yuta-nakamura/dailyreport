@@ -39,11 +39,6 @@ nav .brand-logo {
 }
 
 
-label {
-  float: left;
-  font-size: 1.0em;
-  display: block;
-}
 
 input {
   border:none;
@@ -100,6 +95,15 @@ textarea {
   clear: left;
   display: block;
 }
+
+.control label {
+  float: left;
+  font-size: 1.0em;
+  display: block;
+  margin-bottom: 8px;
+}
+
 #app-main input.input-area {
    width: 30%;
+   height: 2em;
 }
