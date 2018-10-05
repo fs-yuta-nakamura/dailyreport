@@ -53,7 +53,7 @@ var app = new Vue({
   },
   computed: {
     formatedNippo: function (){
-     nippo_text = `お疲れ様です。
+     nippo_text =   `お疲れ様です。
 中村です。
 ${this.month}月${this.day}日(${this.week})の日報です。
 
@@ -63,7 +63,7 @@ ${this.month}月${this.day}日(${this.week})の日報です。
 
 岩本HDの皆様よろしくお願いします。
 @襲田 絢香 @瀧口 賢治
-\`\`\`
+\`\`\`  
 中村優太＠fsに1番貢献している人間になる
 
 

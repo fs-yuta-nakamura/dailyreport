@@ -34,23 +34,16 @@ nav {
 }
 
 nav .brand-logo {
-  left :30px;
+  padding-left: 30px;
   font-size: 20px;
 }
 
 
 
-input {
-  border:none;
-  border-bottom: 1px solid #d1d1d1;
-  width: 30% ;
-  padding: 3px;
-}
 
 select {
   border:none;
   display: block;
-  width: 70%;
   border-bottom: 1px solid #d1d1d1;
   padding: 1px;
 }
@@ -104,6 +97,10 @@ textarea {
 }
 
 #app-main input.input-area {
-   width: 30%;
+   max-width: 200px;
    height: 2em;
+}
+
+#commitment {
+  max-width: 400px;
 }
