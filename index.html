@@ -15,7 +15,7 @@
       <div class="navbar-fixed">
         <nav>
           <div class="brand-logo">日報ジェネレーター</div>
-          <ul class="right hide-on-med-and-down">
+          <ul class="right">
             <li><a id="download" href="#" v-on:click="download" :download="file_name">Download</a></li>
             <li><a href="#" v-on:click="saveData">save</a></li>
             <li><a href="#" v-on:click="loadData">load</a></li>
@@ -25,7 +25,6 @@
       <div class="container">     
 
         <div class="control">
-          <a id="download" href="#" download="test.txt" onclick="downloadURL()">ダウンロード  </a>
           <label for="date">日付</label>
           <input class="input-area" id="date"  type="date"v-model="nippo.date"> 
         </div>
