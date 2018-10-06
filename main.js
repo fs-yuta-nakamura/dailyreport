@@ -48,6 +48,7 @@ var app = new Vue({
       idenshiReview: "",
       tomorrowIdenshi: "",
       calendar: "",
+      commitmemnts: ["時間を理由に挑戦をやめない","できる、できないではなくやる方法を考える","学びを転化する","自分から機会を取りに行く","時間の管理を細かくする" ]
     },
     result: false
   },
@@ -62,8 +63,7 @@ ${this.month}月${this.day}日(${this.week})の日報です。
 @岩本 俊亮 @楢木 稜二
 
 岩本HDの皆様よろしくお願いします。
-@襲田 絢香 @瀧口 賢治
-\`\`\`  
+@襲田 絢香 @瀧口 賢治\`\`\`  
 中村優太＠fsに1番貢献している人間になる
 
 
@@ -71,11 +71,11 @@ ${this.month}月${this.day}日(${this.week})の日報です。
 「Andを取り続ける」
 
 ・コミットメント
-1. 時間を理由に挑戦をやめない
-2. できる、できないではなくやる方法を考える
-3. 学びを転化する
-4. 自分から機会を取りに行く
-5. 時間の管理を細かくする
+1. ${this.nippo.commitmemnts[0]}
+2. ${this.nippo.commitmemnts[1]}
+3. ${this.nippo.commitmemnts[2]}
+4. ${this.nippo.commitmemnts[3]}
+5. ${this.nippo.commitmemnts[4]}
 
 ・振り返り (${this.nippo.commitNum})
 ${this.nippo.commitReview}
@@ -101,8 +101,7 @@ XXX字
 
 
 ■【シラバス】学習進捗確認表
-https://docs.google.com/spreadsheets/d/1kgZgrhEhfshn5jZQ2rXrJ1C59IvfoRnznHBZ0WJ1qdY/edit#gid=1451509297
-  \`\`\` `
+https://docs.google.com/spreadsheets/d/1kgZgrhEhfshn5jZQ2rXrJ1C59IvfoRnznHBZ0WJ1qdY/edit#gid=1451509297\`\`\` `
 
       return  nippo_text.replace("XXX", this.lengthNippo(nippo_text));
     },

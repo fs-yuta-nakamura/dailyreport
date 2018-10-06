@@ -1,99 +1,98 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>日報ジェネレーター</title>
-    <link rel="stylesheet" href="css/sanitize.css" type="text/css" charset="utf-8"> 
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css">
-    <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8">
-  </head>
-  <body>
-    <div id="app-main" >
-      <div class="navbar-fixed">
-        <nav>
-          <div class="brand-logo">日報ジェネレーター</div>
-          <ul class="right">
-            <li><a id="download" href="#" v-on:click="download" :download="file_name">Download</a></li>
-            <li><a href="#" v-on:click="saveData">save</a></li>
-            <li><a href="#" v-on:click="loadData">load</a></li>
-          </ul>
-        </nav>  
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>日報ジェネレーター</title>
+  <link rel="stylesheet" href="css/sanitize.css" type="text/css" charset="utf-8"> 
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css">
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8">
+</head>
+<body>
+  <div id="app-main" >
+    <div class="navbar-fixed">
+      <nav>
+        <div class="brand-logo">日報ジェネレーター</div>
+        <ul class="right">
+          <li><a id="download" href="#" v-on:click="download" :download="file_name">Download</a></li>
+          <li><a href="#" v-on:click="saveData">save</a></li>
+          <li><a href="#" v-on:click="loadData">load</a></li>
+        </ul>
+      </nav>  
+    </div>
+    <div class="container">     
+      
+      <div class="control">
+        <label for="date">日付</label>
+        <input class="input-area" id="date"  type="date"v-model="nippo.date"> 
       </div>
-      <div class="container">     
-
-        <div class="control">
-          <label for="date">日付</label>
-          <input class="input-area" id="date"  type="date"v-model="nippo.date"> 
-        </div>
-
-        <div class="control">
-          <label for="commitment">コミットメント</label>
-          <select class="input-area" id="commitment" v-model="nippo.commitNum" name="commit">
-            <option value="1">1. 時間を理由に挑戦をやめない</option>
-            <option value="2">2. できる、できないではなくやる方法を考える</option>
-            <option value="3">3. 学びを転化する</option>
-            <option value="4">4. 自分から機会を取りに行く</option>
-            <option value="5">5. 時間の管理を細かくする</option>
-          </select>
-        </div>
-
-        <div class="control">
-          <label for="commitReview">コミットメントの振り返り</label>
-          <span class="mojisu">{{commitLength}}文字</span>
-          <textarea id="commitReview" v-model="nippo.commitReview" rows="10"></textarea>
-        </div>
-
-        <div class="control">
-          <label for="todayIdenshi">本日の遺伝志</label>
-          <input id="todayIdenshi" class="input-area" v-model="nippo.todayIdenshi" type="text"> 
-        </div>
-
-        <div class="control">
-          <label for="idenshiReview">遺伝志の振り返り</label>
-          <span class="mojisu">{{idenshiLength}}文字</span>
-          <textarea id="idenshiReview" v-model="nippo.idenshiReview" rows="10"></textarea>
-        </div>
-
-        <div class="control">
-          <label for="tomorrowIdenshi">明日の遺伝志</label>
-          <input class="input-area" id="tomorrowIdenshi" v-model="nippo.tomorrowIdenshi" type="text"> 
-        </div>
-
-        <div class="control">
-          <label for="calendar">本日のながれ</label>
-          <span class="mojisu">{{calendarLength}}文字</span>
-          <textarea id="calendar" v-model="nippo.calendar" rows="10"></textarea>
-        </div>
-
-        <button type="button" id="make" class="btn btn-primary" v-on:click="makeNippo">日報作成！</button>
-
-        <div class="row">
-          <div class="col m8 offset-m2">  
-            <transition name="fade">
+      
+      <div class="control">
+        <label for="commitment">コミットメント</label>
+        <select class="input-area" id="commitment" v-model="nippo.commitNum" name="commit">
+          <option value="1">1. {{nippo.commitmemnts[0]}}</option>
+          <option value="2">2. {{nippo.commitmemnts[1]}}</option>
+          <option value="3">3. {{nippo.commitmemnts[2]}}</option>
+          <option value="4">4. {{nippo.commitmemnts[3]}}</option>
+          <option value="5">5. {{nippo.commitmemnts[4]}}</option>
+        </select>
+      </div>
+      
+      <div class="control">
+        <label for="commitReview">コミットメントの振り返り</label>
+        <span class="mojisu">{{commitLength}}文字</span>
+        <textarea id="commitReview" v-model="nippo.commitReview" rows="10"></textarea>
+      </div>
+      
+      <div class="control">
+        <label for="todayIdenshi">本日の遺伝志</label>
+        <input id="todayIdenshi" class="input-area" v-model="nippo.todayIdenshi" type="text"> 
+      </div>
+      
+      <div class="control">
+        <label for="idenshiReview">遺伝志の振り返り</label>
+        <span class="mojisu">{{idenshiLength}}文字</span>
+        <textarea id="idenshiReview" v-model="nippo.idenshiReview" rows="10"></textarea>
+      </div>
+      
+      <div class="control">
+        <label for="tomorrowIdenshi">明日の遺伝志</label>
+        <input class="input-area" id="tomorrowIdenshi" v-model="nippo.tomorrowIdenshi" type="text"> 
+      </div>
+      
+      <div class="control">
+        <label for="calendar">本日のながれ</label>
+        <span class="mojisu">{{calendarLength}}文字</span>
+        <textarea id="calendar" v-model="nippo.calendar" rows="10"></textarea>
+      </div>
+      
+      <button type="button" id="make" class="btn btn-primary" v-on:click="makeNippo">日報作成！</button>
+      
+      <div class="row">
+        <div class="col m8 offset-m2">  
+          <transition name="fade">
             <div class="alert alert-info" id="result-info" role="alert" v-show="result">クリップボードにコピーしました</div>
-            </transition>
-            <div class="card" id="result" v-show="result">
-              <div class="card-content">
-
-                <p id="result-text">{{formatedNippo}}</p>
-              </div>
-            </div> 
-          </div>
+          </transition>
+          <div class="card" id="result" v-show="result">
+            <div class="card-content">
+              <p id="result-text">{{formatedNippo}}</p>
+            </div>
+          </div> 
         </div>
       </div>
-
     </div>
-    </div>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+  </div>
+</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
 
-    <script src="main.js", type="text/javascript"></script>
-  </body>
+<script src="main.js", type="text/javascript"></script>
+</body>
 </html>
