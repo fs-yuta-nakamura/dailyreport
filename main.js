@@ -122,7 +122,7 @@ https://docs.google.com/spreadsheets/d/1kgZgrhEhfshn5jZQ2rXrJ1C59IvfoRnznHBZ0WJ1
     day: function(){
       return this.jsDate.getDate() },
     week: function(){
-      return '日月火水木金土'[this.day] },
+      return '日月火水木金土'[this.jsDate.getDay()] },
     file_name: function(){
       return "" + this.nippo.date.slice(5, 7) + this.nippo.date.slice(8, 10) + "_日報";
     }
