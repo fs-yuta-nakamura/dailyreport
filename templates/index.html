@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>日報ジェネレーター</title>
-  <link rel="stylesheet" href="css/sanitize.css" type="text/css" charset="utf-8"> 
+  <link rel="stylesheet" href="static/sanitize.css" type="text/css" charset="utf-8"> 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css">
-  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8">
+  <link rel="stylesheet" href="static/style.css" type="text/css" charset="utf-8">
 </head>
 <body>
   <div id="app-main" >
+    {% raw %}
     <div class="navbar-fixed">
       <nav>
         <div class="brand-logo">日報ジェネレーター</div>
@@ -82,6 +83,7 @@
           </div> 
         </div>
       </div>
+      {% endraw %}
     </div>
   </div>
 </div>
@@ -111,6 +113,6 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="./shortcut.js"></script>
 
-<script src="main.js", type="text/javascript"></script>
+<script src="static/main.js", type="text/javascript"></script>
 </body>
 </html>
