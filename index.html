@@ -17,12 +17,12 @@
         <div class="brand-logo">日報ジェネレーター</div>
         <ul class="right">
           <li><a id="download" href="#" v-on:click="download" :download="file_name">Download</a></li>
-          <li><a href="#" v-on:click="saveData">save</a></li>
-          <li><a href="#" v-on:click="loadData">load</a></li>
+          <li><a href="#" v-on:click="saveToFirebase">save</a></li>
+          <li><a href="#" v-on:click="loadFromFirebase">load</a></li>
         </ul>
       </nav>  
     </div>
-    <div class="container">     
+    <div class="container">   
       
       <div class="control">
         <label for="date">日付</label>
@@ -86,6 +86,22 @@
   </div>
 </div>
 <!-- Optional JavaScript -->
+<!-- Fire Base -->
+<script src="https://www.gstatic.com/firebasejs/5.5.3/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBRZw_7KCgq0K4g_jTVAeUNUxCpBdzotOE",
+    authDomain: "dailyreportgenerator.firebaseapp.com",
+    databaseURL: "https://dailyreportgenerator.firebaseio.com",
+    projectId: "dailyreportgenerator",
+    storageBucket: "dailyreportgenerator.appspot.com",
+    messagingSenderId: "503168007387"
+  };
+  firebase.initializeApp(config);
+</script>
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

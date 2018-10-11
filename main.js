@@ -1,3 +1,12 @@
+firebase.initializeApp({
+  apiKey: config.apiKey,
+  authDomain: config.authDomain,
+  projectId: config.projectId
+});
+
+// Initialize Cloud Firestore through Firebase
+var db = firebase.firestore();
+
 function copyText(text){
   var ta = document.createElement("textarea")
   ta.value = text
@@ -48,7 +57,8 @@ var app = new Vue({
       idenshiReview: "",
       tomorrowIdenshi: "",
       calendar: "",
-      commitmemnts: ["時間を理由に挑戦をやめない","できる、できないではなくやる方法を考える","学びを転化する","自分から機会を取りに行く","時間の管理を細かくする" ]
+      commitmemnts: ["時間を理由に挑戦をやめない","できる、できないではなくやる方法を考える","学びを転化する","自分から機会を取りに行く","時間の管理を細かくする" ],
+      content: ""
     },
     result: false
   },
@@ -156,30 +166,23 @@ https://docs.google.com/spreadsheets/d/1kgZgrhEhfshn5jZQ2rXrJ1C59IvfoRnznHBZ0WJ1
       this.$nextTick(function(){
         document.getElementById("download").href = downloadLink;    
       });
+    },
+    saveToFirebase: function(){
+      db.collection("nippos").doc(this.nippo.date).set({
+        timestamp: new Date(),
+        nippo: this.nippo,
+        formated: this.formatedNippo
+      }).then(function(){
+        console.log("saved to Firebase");
+      })  
+    },
+    loadFromFirebase: function(){
+      db.collection("nippos").doc(this.nippo.date).get().then((doc) => {
+        if (doc.exists) {
+          console.log("Document data:", doc.data());
+          this.nippo = doc.data().nippo;
+        }
+      })
     }
   } 
 })
-/*
-// vue 
-Vue.component('text-review', {
-  props: ['title'],
-  data: function() {
-    return {
-      message: ""
-    }
-  },
-  computed: {
-    length: function(){
-      return this.message.replace(/[\s\n]+/g, "").length
-    }
-  },
-  template: `
-  <div class="text-review">
-  <label v-bind:for="title"><slot></slot></label>
-  <span class="mojisu">{{length}}文字</span>
-  <textarea v-bind:id="title" v-model="message" rows="10"></textarea>
-  </div>
-  `
-}
-)
-*/
