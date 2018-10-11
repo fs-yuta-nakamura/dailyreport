@@ -48,7 +48,18 @@ var downloadURL = function(){
   var blob = new Blob([ content ], { "type" : "text/plain" });
   var downloadLink = window.URL.createObjectURL(blob);
   document.getElementById("download").href = downloadLink;
+}
 
+function iftttWebhook(eventName, payload){
+  var postUrl = "https://maker.ifttt.com/trigger/" + eventName + "/with/key/lip6cStAxjJdAr7J08bMGuWxpHQdPFyxyvxbD6_zbjn";
+  console.log(payload),
+  axios.post(postUrl, payload)
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
 }
 
 var app = new Vue({
@@ -156,6 +167,11 @@ https://docs.google.com/spreadsheets/d/1kgZgrhEhfshn5jZQ2rXrJ1C59IvfoRnznHBZ0WJ1
       this.result = true;
       this.$nextTick(function(){
         document.getElementById("result").scrollIntoView({behavior: "smooth", block: "start"});
+      })
+      // send to ifttt
+      iftttWebhook("nippo_submit",{
+        "value1": this.nippo.date,
+        "value2": this.formatedNippo
       })
     },
     saveData: function(){
