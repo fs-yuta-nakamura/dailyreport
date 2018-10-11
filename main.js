@@ -11,9 +11,15 @@ function copyText(text){
   var ta = document.createElement("textarea")
   ta.value = text
   document.body.appendChild(ta)
-  ta.select()
-  document.execCommand("copy")
-  ta.parentElement.removeChild(ta)
+  ta.select();
+  document.execCommand("copy");
+  ta.parentElement.removeChild(ta);
+  M.toast({
+    html: "クリップボードにコピーしました",
+    displayLength: 2000,
+    inDuration: 500,
+    outDuration: 375
+  });
 }
 
 var setDefaultDate = function(){
@@ -172,9 +178,18 @@ https://docs.google.com/spreadsheets/d/1kgZgrhEhfshn5jZQ2rXrJ1C59IvfoRnznHBZ0WJ1
         timestamp: new Date(),
         nippo: this.nippo,
         formated: this.formatedNippo
-      }).then(function(){
-        console.log("saved to Firebase");
-      })  
+      })
+        .then(function(){
+          console.log("saved to Firebase");
+        })
+        .then(function(){
+          M.toast({
+            html: "保存しました",
+            displayLength: 2000,
+            inDuration: 500,
+            outDuration: 375
+          })
+        })  
     },
     loadFromFirebase: function(){
       db.collection("nippos").doc(this.nippo.date).get().then((doc) => {
@@ -183,8 +198,16 @@ https://docs.google.com/spreadsheets/d/1kgZgrhEhfshn5jZQ2rXrJ1C59IvfoRnznHBZ0WJ1
           this.nippo = doc.data().nippo;
         }
       })
+        .then(function(){
+          M.toast({
+            html: "ロードしました",
+            displayLength: 2000,
+            inDuration: 500,
+            outDuration: 375
+          })
+        })
     }
-  } 
+  }
 })
 // add shortcut for saving data
 shortcut.add("Ctrl+S", app.saveToFirebase);
