@@ -186,3 +186,5 @@ https://docs.google.com/spreadsheets/d/1kgZgrhEhfshn5jZQ2rXrJ1C59IvfoRnznHBZ0WJ1
     }
   } 
 })
+// add shortcut for saving data
+shortcut.add("Ctrl+S", app.saveToFirebase);
