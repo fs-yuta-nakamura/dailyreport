@@ -50,8 +50,22 @@ var downloadURL = function(){
   document.getElementById("download").href = downloadLink;
 }
 
+/*
 function iftttWebhook(eventName, payload){
   var postUrl = "https://maker.ifttt.com/trigger/" + eventName + "/with/key/lip6cStAxjJdAr7J08bMGuWxpHQdPFyxyvxbD6_zbjn";
+  console.log(payload),
+  axios.post(postUrl, payload)
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+}
+*/
+
+function iftttWebhook(eventName, payload){
+  var postUrl = "/ifttt"
   console.log(payload),
   axios.post(postUrl, payload)
     .then(function (response) {
