@@ -63,6 +63,12 @@ function iftttWebhook(eventName, payload){
     });
 }
 
+// initialize materialize
+document.addEventListener('DOMContentLoaded', function() {
+	var elems = document.querySelectorAll('select');
+	var instances = M.FormSelect.init(elems);
+});
+
 var app = new Vue({
   el: "#app-main",
   data: {

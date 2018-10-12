@@ -46,7 +46,6 @@ nav .brand-logo {
 
 select {
   border:none;
-  display: block;
   border-bottom: 1px solid #d1d1d1;
   padding: 1px;
 }
@@ -96,18 +95,31 @@ textarea {
 
 .input-area{
   clear: left;
-  display: block;
 }
 
 .control label {
   float: left;
   font-size: 1.0em;
   display: block;
-  margin-bottom: 8px;
+  padding-bottom: 8px;
+}
+.select-wrapper {
+  max-width: 400px;
+}
+.select-wrapper input.select-dropdown {
+  height: 2rem;
 }
 
+.input-field {
+  margin-top: 3.5rem;
+}
+
+.select-wrapper + label {
+  top: -42px;
+}
 #app-main input.input-area {
    max-width: 200px;
+   display: block;
    height: 2em;
 }
 

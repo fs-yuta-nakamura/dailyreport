@@ -31,14 +31,17 @@
       </div>
       
       <div class="control">
-        <label for="commitment">コミットメント</label>
-        <select class="input-area" id="commitment" v-model="nippo.commitNum" name="commit">
-          <option value="1">1. {{nippo.commitmemnts[0]}}</option>
-          <option value="2">2. {{nippo.commitmemnts[1]}}</option>
-          <option value="3">3. {{nippo.commitmemnts[2]}}</option>
-          <option value="4">4. {{nippo.commitmemnts[3]}}</option>
-          <option value="5">5. {{nippo.commitmemnts[4]}}</option>
-        </select>
+        <div class="input-field">
+          <select class="input-area" id="commitment" v-model="nippo.commitNum" name="commit">
+            <option value="" disabled selected>コミットメントを選択したください</option>
+            <option value="1">1. {{nippo.commitmemnts[0]}}</option>
+            <option value="2">2. {{nippo.commitmemnts[1]}}</option>
+            <option value="3">3. {{nippo.commitmemnts[2]}}</option>
+            <option value="4">4. {{nippo.commitmemnts[3]}}</option>
+            <option value="5">5. {{nippo.commitmemnts[4]}}</option>
+          </select>
+          <label>コミットメント</label>
+        </div>
       </div>
       
       <div class="control">
