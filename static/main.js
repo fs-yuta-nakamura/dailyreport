@@ -186,7 +186,8 @@ https://docs.google.com/spreadsheets/d/1kgZgrhEhfshn5jZQ2rXrJ1C59IvfoRnznHBZ0WJ1
       iftttWebhook("nippo_submit",{
         "value1": this.nippo.date,
         "value2": this.formatedNippo
-      })
+      });
+      this.saveToFirebase();
     },
     saveData: function(){
       localStorage.setItem("datalist", JSON.stringify(this.nippo)) 

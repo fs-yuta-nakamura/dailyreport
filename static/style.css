@@ -34,8 +34,11 @@ nav {
 }
 
 nav .brand-logo {
+  font-size: 20px;
   padding-left: 30px;
   font-size: 20px;
+  transform: none;
+  left:20px;
 }
 
 
