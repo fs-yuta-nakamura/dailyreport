@@ -126,3 +126,7 @@ textarea {
 #commitment {
   max-width: 400px;
 }
+
+@media screen and (max-width: 460px){
+  .no-mobile {display:none;}
+}
