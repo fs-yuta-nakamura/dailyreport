@@ -27,7 +27,15 @@ var setDefaultDate = function(){
   var date = new Date();
   var year = date.getFullYear();
   var month = date.getMonth() + 1;
-  var day = date.getDate();
+  var day ;
+  var hours = date.getHours();
+  console.log(hours)
+
+  if (hours > 0 && hours < 2){
+    day = date.getDate() - 1; 
+  } else {
+    day = date.getDate();
+  }
 
   var toTwoDigits = function(num, digit){
     num  += '';
@@ -115,14 +123,14 @@ ${this.month}月${this.day}日(${this.week})の日報です。
 5. ${this.nippo.commitmemnts[4]}
 
 ・振り返り (${this.nippo.commitNum})
-${this.nippo.commitReview}
+${this.nippo.commitReview.trim()}
 
 
 ■本日意識した遺伝志
 「${this.nippo.todayIdenshi}」
 
 ・振り返り
-${this.nippo.idenshiReview}
+${this.nippo.idenshiReview.trim()}
 
 
 ■明日意識する遺伝志
@@ -130,7 +138,7 @@ ${this.nippo.idenshiReview}
 
 
 ■本日の流れ
-${this.nippo.calendar}
+${this.nippo.calendar.trim()}
 
 
 ■文字数

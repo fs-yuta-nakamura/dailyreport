@@ -56,8 +56,10 @@
       </div>
       
       <div class="control">
-        <label for="idenshiReview">遺伝志の振り返り</label>
-        <span class="mojisu">{{idenshiLength}}文字</span>
+        <div class="count-label">
+          <label for="idenshiReview">遺伝志の振り返り</label>
+          <span class="mojisu">{{idenshiLength}}文字</span>
+        </div>
         <textarea id="idenshiReview" v-model="nippo.idenshiReview" rows="10"></textarea>
       </div>
       
