@@ -1,129 +1,113 @@
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP');
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+JP");
+@import url("https://fonts.googleapis.com/css?family=Roboto");
 .content {
   background-color: #fff;
   max-width: 800px;
   margin: 10px auto;
   border: 1px solid #d1d1d1;
   padding: 30px;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.24);
-}
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.24); }
 
-.control{
-  margin-bottom: 1.5em;
-}
+.control {
+  margin-bottom: 1.5em; }
 
 .btn-primary {
   margin: 20px 5px;
-  box-shadow: 0 0 4px 0 rgba(0,0,0,0.24);
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.24); }
 
-}
 html {
-  font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", 'noto sans JP',Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-}
+  font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", 'noto sans JP',Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; }
+
 h1 {
-  margin: 5px 0px 25px 5px;
-}
+  margin: 5px 0px 25px 5px; }
 
 p {
-  white-space: pre-wrap;
-}
+  white-space: pre-wrap; }
 
 nav {
-  padding: 0px 20px;
-}
-
-nav .brand-logo {
-  font-size: 20px;
-  padding-left: 30px;
-  font-size: 20px;
-  transform: none;
-  left:20px;
-}
+  padding: 0px 20px; }
+  nav .brand-logo {
+    font-size: 20px;
+    padding-left: 30px;
+    font-size: 20px;
+    transform: none;
+    left: 20px; }
 
 select {
-  border:none;
+  border: none;
   border-bottom: 1px solid #d1d1d1;
-  padding: 1px;
-}
-
-select:focus {
-box-shadow: 0 1px 0 0 #26a69a;
-border-bottom: 1px solid #26a69a;
-outline: none;
-}
-
+  padding: 1px; }
+  select:focus {
+    box-shadow: 0 1px 0 0 #26a69a;
+    border-bottom: 1px solid #26a69a;
+    outline: none; }
 
 textarea {
   font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", 'noto sans JP',Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   clear: left;
   display: block;
   border: 1px solid #d1d1d1;
-  width: 100% ;
+  width: 100%;
   height: 16rem;
-  padding: 8px;
-}
-
-
+  padding: 8px; }
 
 .container {
-  padding-top: 20px;
-}
-
+  padding-top: 20px; }
 
 .mojisu {
   float: left;
   text-align: right;
-  margin-left: 30px;
-}
-
+  margin-left: 30px; }
 
 #calendar {
-  max-width: 400px  ;
-}
+  max-width: 400px; }
 
 .fade-enter {
-  opacity: 0;
-}
+  opacity: 0; }
 
 .fade-enter-active {
-  transition: all .3s ease;
-}
+  transition: all .3s ease; }
 
-.input-area{
-  clear: left;
-}
+.input-area {
+  clear: left; }
 
 .control label {
   float: left;
   font-size: 1.0em;
   display: block;
-  padding-bottom: 8px;
-}
+  padding-bottom: 8px; }
+
 .select-wrapper {
-  max-width: 400px;
-}
-.select-wrapper input.select-dropdown {
-  height: 2rem;
-}
+  max-width: 400px; }
+  .select-wrapper input.select-dropdown {
+    height: 2rem; }
 
 .input-field {
-  margin-top: 3.5rem;
-}
+  margin-top: 3.5rem; }
 
 .select-wrapper + label {
-  top: -42px;
-}
+  top: -42px; }
+
+.modal-overlay {
+  display: block; }
+  .modal-overlay .modal-content {
+    background-color: white;
+    opacity: 1;
+    margin: auto; }
+
+.modal-open {
+  opacity: 1; }
+
 #app-main input.input-area {
-   max-width: 200px;
-   display: block;
-   height: 2em;
-}
+  max-width: 200px;
+  display: block;
+  height: 2em; }
 
 #commitment {
-  max-width: 400px;
-}
+  max-width: 400px; }
 
-@media screen and (max-width: 460px){
-  .no-mobile {display:none;}
-}
+@media screen and (max-width: 460px) {
+  .no-mobile {
+    display: none; } }
+
+/*# sourceMappingURL=style.css.map */

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>日報ジェネレーター</title>
-  <link rel="stylesheet" href="static/sanitize.css" type="text/css" charset="utf-8"> 
+  <link rel="stylesheet" href="static/sanitize.css" type="text/css" charset="utf-8">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css">
   <link rel="stylesheet" href="static/style.css" type="text/css" charset="utf-8">
@@ -21,15 +21,15 @@
           <li><a href="#" v-on:click="saveToFirebase">save</a></li>
           <li><a href="#" v-on:click="loadFromFirebase">load</a></li>
         </ul>
-      </nav>  
+      </nav>
     </div>
-    <div class="container">   
-      
+    <div class="container">
+
       <div class="control">
         <label for="date">日付</label>
-        <input class="input-area" id="date"  type="date"v-model="nippo.date"> 
+        <input class="input-area" id="date"  type="date"v-model="nippo.date">
       </div>
-      
+
       <div class="control">
         <div class="input-field">
           <select class="input-area" id="commitment" v-model="nippo.commitNum" name="commit">
@@ -43,18 +43,18 @@
           <label>コミットメント</label>
         </div>
       </div>
-      
+
       <div class="control">
         <label for="commitReview">コミットメントの振り返り</label>
         <span class="mojisu">{{commitLength}}文字</span>
         <textarea id="commitReview" v-model="nippo.commitReview" rows="10"></textarea>
       </div>
-      
+
       <div class="control">
         <label for="todayIdenshi">本日の遺伝志</label>
-        <input id="todayIdenshi" class="input-area" v-model="nippo.todayIdenshi" type="text"> 
+        <input id="todayIdenshi" class="input-area" v-model="nippo.todayIdenshi" type="text">
       </div>
-      
+
       <div class="control">
         <div class="count-label">
           <label for="idenshiReview">遺伝志の振り返り</label>
@@ -62,29 +62,33 @@
         </div>
         <textarea id="idenshiReview" v-model="nippo.idenshiReview" rows="10"></textarea>
       </div>
-      
+
       <div class="control">
         <label for="tomorrowIdenshi">明日の遺伝志</label>
-        <input class="input-area" id="tomorrowIdenshi" v-model="nippo.tomorrowIdenshi" type="text"> 
+        <input class="input-area" id="tomorrowIdenshi" v-model="nippo.tomorrowIdenshi" type="text">
       </div>
-      
+
       <div class="control">
         <label for="calendar">本日のながれ</label>
         <span class="mojisu">{{calendarLength}}文字</span>
         <textarea id="calendar" v-model="nippo.calendar" rows="10"></textarea>
       </div>
-      
+
       <button type="button" id="make" class="btn btn-primary" v-on:click="makeNippo">日報作成！</button>
-      
-      <div class="row">
-        <div class="col m8 offset-m2">  
-          <div class="card" id="result" v-show="result">
-            <div class="card-content">
-              <p id="result-text">{{formatedNippo}}</p>
-            </div>
-          </div> 
-        </div>
+
+      <div id="result-modal" class="modal modal-open">
+        <div class="modal-content">{{formatedNippo}}</div>
+        <div class="modal-footer"></div>
       </div>
+      <!--<div class="row">-->
+        <!--<div class="col m8 offset-m2">-->
+          <!--<div class="card" id="result" v-show="result">-->
+            <!--<div class="card-content">-->
+              <!--<p id="result-text">{{formatednippo}}</p>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
       {% endraw %}
     </div>
   </div>
