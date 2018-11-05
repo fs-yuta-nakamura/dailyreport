@@ -76,19 +76,15 @@
 
       <button type="button" id="make" class="btn btn-primary" v-on:click="makeNippo">日報作成！</button>
 
-      <div id="result-modal" class="modal modal-open">
-        <div class="modal-content">{{formatedNippo}}</div>
-        <div class="modal-footer"></div>
+      <div class="row">
+        <div class="col m8 offset-m2">
+          <div class="card" id="result" v-show="result">
+            <div class="card-content">
+              <p id="result-text">{{formatedNippo}}</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <!--<div class="row">-->
-        <!--<div class="col m8 offset-m2">-->
-          <!--<div class="card" id="result" v-show="result">-->
-            <!--<div class="card-content">-->
-              <!--<p id="result-text">{{formatednippo}}</p>-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</div>-->
-      <!--</div>-->
       {% endraw %}
     </div>
   </div>

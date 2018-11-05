@@ -72,10 +72,10 @@ function iftttWebhook(eventName, payload) {
 }
 
 // initialize materialize
-//document.addEventListener('DOMContentLoaded', function() {
-//var elems = document.querySelectorAll('select');
-//var instances = M.FormSelect.init(elems);
-//});
+document.addEventListener("DOMContentLoaded", function() {
+  var elems = document.querySelectorAll("select");
+  var instances = M.FormSelect.init(elems);
+});
 
 //materialize modal
 document.addEventListener("DOMContentLoaded", function() {
@@ -150,10 +150,6 @@ ${this.nippo.idenshiReview.trim()}
 
 ■本日の流れ
 ${this.nippo.calendar.trim()}
-
-
-■文字数
-XXX字
 
 
 ■【シラバス】学習進捗確認表
