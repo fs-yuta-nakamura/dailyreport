@@ -31,7 +31,7 @@ var setDefaultDate = function() {
   var hours = date.getHours();
   console.log(hours);
 
-  if (hours > 0 && hours < 2) {
+  if (hours >= 0 && hours < 2) {
     day = date.getDate() - 1;
   } else {
     day = date.getDate();
@@ -119,7 +119,7 @@ ${this.month}月${this.day}日(${this.week})の日報です。
 @岩本 俊亮 @楢木 稜二
 
 岩本HDの皆様よろしくお願いします。
-@襲田 絢香 @瀧口 賢治\`\`\`  
+@襲田 絢香 @瀧口 賢治\`\`\`
 中村優太＠fsに1番貢献している人間になる
 
 
